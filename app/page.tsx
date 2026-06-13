@@ -7,11 +7,14 @@ import {
   Award,
   Baby,
   BarChart3,
+  BellRing,
   BookOpen,
   Check,
   ChevronRight,
+  ClipboardPenLine,
   Compass,
   Crown,
+  Fingerprint,
   Flower2,
   GraduationCap,
   HandHeart,
@@ -24,6 +27,7 @@ import {
   Palette,
   PartyPopper,
   Play,
+  QrCode,
   School,
   ShieldCheck,
   Sparkles,
@@ -148,6 +152,37 @@ const metrics = [
   { label: "Child Happiness", value: 98, icon: Baby, accent: "text-amber-500" },
   { label: "Retention Rate", value: 94, icon: ShieldCheck, accent: "text-sky-500" },
   { label: "Admissions Growth", value: 32, icon: TrendingUp, accent: "text-emerald-500" },
+];
+
+const capabilities = [
+  {
+    title: "Smart Attendance",
+    text: "Biometric or QR check-in that takes seconds and keeps the school day moving.",
+    outcome: "Less paperwork. More certainty.",
+    icon: Fingerprint,
+    accent: "from-violet-500 to-indigo-500",
+  },
+  {
+    title: "Instant Parent SMS",
+    text: "Parents receive an SMS when their child arrives or leaves, without needing another app.",
+    outcome: "Peace of mind, automatically.",
+    icon: QrCode,
+    accent: "from-sky-500 to-cyan-400",
+  },
+  {
+    title: "Android Notifications",
+    text: "Important announcements, reminders, and moments reach families through timely push notifications.",
+    outcome: "The right message, at the right time.",
+    icon: BellRing,
+    accent: "from-amber-500 to-orange-400",
+  },
+  {
+    title: "Homework on the Web",
+    text: "Teachers share simple, clear homework that parents can view from any phone or browser.",
+    outcome: "Learning continues beyond the classroom.",
+    icon: ClipboardPenLine,
+    accent: "from-emerald-500 to-teal-400",
+  },
 ];
 
 const pathway = [
@@ -585,6 +620,57 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section className="section-pad overflow-hidden bg-white">
+        <SectionIntro
+          eyebrow="From vision to everyday value"
+          title={
+            <>
+              Technology that quietly
+              <br />
+              <span className="text-emerald-500">makes school better.</span>
+            </>
+          }
+          description="Simple tools working together to reduce friction, strengthen trust, and keep every family connected."
+        />
+        <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
+          {capabilities.map(({ title, text, outcome, icon: Icon, accent }, index) => (
+            <Reveal key={title} delay={index * 0.07}>
+              <motion.div
+                whileHover={{ y: -7 }}
+                className="soft-card group relative h-full overflow-hidden rounded-[2rem] bg-slate-50 p-7 md:p-9"
+              >
+                <div
+                  className={cn(
+                    "absolute -right-20 -top-20 h-52 w-52 rounded-full bg-gradient-to-br opacity-[0.12] blur-2xl transition duration-500 group-hover:opacity-25",
+                    accent,
+                  )}
+                />
+                <div className="relative flex items-start justify-between gap-5">
+                  <div className={cn("flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg", accent)}>
+                    <Icon size={24} />
+                  </div>
+                  <span className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-400">
+                    Capability 0{index + 1}
+                  </span>
+                </div>
+                <div className="relative mt-12">
+                  <h3 className="display text-3xl font-semibold text-slate-950">{title}</h3>
+                  <p className="mt-4 max-w-md text-sm leading-6 text-slate-500">{text}</p>
+                  <div className="mt-7 flex items-center gap-2 border-t border-slate-200 pt-5 text-sm font-semibold text-slate-700">
+                    <Check size={16} className="text-emerald-500" />
+                    {outcome}
+                  </div>
+                </div>
+              </motion.div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="mx-auto mt-12 flex max-w-3xl items-center justify-center gap-4 rounded-full border border-emerald-100 bg-emerald-50 px-6 py-4 text-center text-sm font-medium text-emerald-800">
+          <Sparkles size={17} className="shrink-0 text-emerald-500" />
+          One connected experience for school leaders, teachers, parents, and children.
+        </Reveal>
       </section>
 
       <section className="section-pad overflow-hidden bg-[#f7faf9]">
