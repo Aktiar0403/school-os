@@ -711,6 +711,98 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section-pad overflow-hidden bg-white">
+        <SectionIntro
+          eyebrow="Built for every school"
+          title={
+            <>
+              One powerful system.
+              <br />
+              <span className="text-emerald-500">A model for everyone.</span>
+            </>
+          }
+          description="Every school deserves access to better tools. Choose the model that fits today, and grow without changing the foundation."
+        />
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+          <Reveal>
+            <motion.div
+              whileHover={{ y: -7 }}
+              className="soft-card relative h-full overflow-hidden rounded-[2rem] bg-slate-50 p-7 md:p-10"
+            >
+              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-200/60 blur-[45px]" />
+              <div className="relative">
+                <div className="flex items-center justify-between gap-4">
+                  <IconTile icon={School} className="h-14 w-14 bg-emerald-500 text-white" />
+                  <span className="rounded-full bg-emerald-100 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-700">
+                    Start here
+                  </span>
+                </div>
+                <p className="mt-10 text-xs font-bold uppercase tracking-[0.18em] text-emerald-600">School OS Platform</p>
+                <h3 className="display mt-2 text-3xl font-semibold text-slate-950">Ready for every school</h3>
+                <p className="mt-4 text-sm leading-6 text-slate-500">
+                  Use the complete School OS platform under our trusted identity, with a simple subscription and no heavy setup.
+                </p>
+                <div className="mt-8 flex items-end gap-2 border-y border-slate-200 py-6">
+                  <span className="display text-5xl font-semibold text-slate-950">₹999</span>
+                  <span className="pb-1 text-sm font-medium text-slate-400">/ month onwards</span>
+                </div>
+                <div className="mt-7 space-y-3">
+                  {["Core School OS capabilities", "Fast setup and ongoing updates", "Grow at your own pace"].map((item) => (
+                    <div key={item} className="flex items-center gap-3 text-sm font-medium text-slate-600">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                        <Check size={13} strokeWidth={3} />
+                      </span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <motion.div
+              whileHover={{ y: -7 }}
+              className="relative h-full overflow-hidden rounded-[2rem] bg-slate-950 p-7 text-white shadow-2xl shadow-slate-900/15 md:p-10"
+            >
+              <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-emerald-500/20 blur-[70px]" />
+              <div className="relative">
+                <div className="flex items-center justify-between gap-4">
+                  <IconTile icon={Crown} className="h-14 w-14 bg-emerald-400 text-slate-950" />
+                  <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-300">
+                    Your identity
+                  </span>
+                </div>
+                <p className="mt-10 text-xs font-bold uppercase tracking-[0.18em] text-emerald-400">White-Label School OS</p>
+                <h3 className="display mt-2 text-3xl font-semibold">Built around your brand</h3>
+                <p className="mt-4 text-sm leading-6 text-slate-400">
+                  Bring the School OS experience to your community with your school&apos;s own name, identity, and digital presence.
+                </p>
+                <div className="mt-8 border-y border-white/10 py-6">
+                  <p className="display text-4xl font-semibold">A platform of your own.</p>
+                  <p className="mt-2 text-sm text-slate-500">Tailored scope and partnership model</p>
+                </div>
+                <div className="mt-7 space-y-3">
+                  {["Your school branding", "A tailored digital experience", "Strategic implementation support"].map((item) => (
+                    <div key={item} className="flex items-center gap-3 text-sm font-medium text-slate-300">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-400 text-slate-950">
+                        <Check size={13} strokeWidth={3} />
+                      </span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </Reveal>
+        </div>
+        <Reveal className="mx-auto mt-10 max-w-3xl text-center">
+          <p className="text-sm leading-6 text-slate-500">
+            Same vision. Same commitment to better schools.
+            <span className="font-semibold text-slate-800"> A path designed for where you are today.</span>
+          </p>
+        </Reveal>
+      </section>
+
       <section id="partnership" className="relative overflow-hidden bg-white px-6 py-24 md:py-36">
         <div className="absolute left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-100/70 blur-[100px]" />
         <Reveal className="relative mx-auto max-w-6xl overflow-hidden rounded-[2.5rem] bg-slate-950 px-7 py-14 text-white shadow-2xl shadow-slate-900/20 md:px-16 md:py-20">
