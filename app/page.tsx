@@ -184,6 +184,28 @@ const capabilities = [
   },
 ];
 
+const foundationModules = [
+  { title: "Admissions", items: ["Lead tracking", "Enquiry management", "Admission funnel"], icon: School, tint: "bg-violet-50 text-violet-600" },
+  { title: "Students", items: ["Profiles", "Documents", "History"], icon: Users, tint: "bg-sky-50 text-sky-600" },
+  { title: "Attendance", items: ["QR", "Biometric", "Manual"], icon: Fingerprint, tint: "bg-amber-50 text-amber-600" },
+  { title: "Fees", items: ["Invoices", "Payments", "Reminders"], icon: IndianRupee, tint: "bg-emerald-50 text-emerald-600" },
+  { title: "Staff", items: ["Teachers", "Payroll", "Leaves"], icon: GraduationCap, tint: "bg-indigo-50 text-indigo-600" },
+  { title: "Parent App", items: ["Updates", "Notifications", "Communication"], icon: Heart, tint: "bg-rose-50 text-rose-600" },
+  { title: "Academics", items: ["Homework", "Activities", "Progress"], icon: BookOpen, tint: "bg-orange-50 text-orange-600" },
+  { title: "Reports", items: ["Insights", "Analytics", "Exports"], icon: BarChart3, tint: "bg-cyan-50 text-cyan-600" },
+];
+
+const schoolHealth = [
+  { label: "Admissions Health", status: "Strong", color: "bg-emerald-400", glow: "shadow-emerald-400/40" },
+  { label: "Teacher Engagement", status: "Needs attention", color: "bg-amber-400", glow: "shadow-amber-400/40" },
+  { label: "Parent Satisfaction", status: "Strong", color: "bg-emerald-400", glow: "shadow-emerald-400/40" },
+  { label: "Student Retention", status: "Strong", color: "bg-emerald-400", glow: "shadow-emerald-400/40" },
+  { label: "Fee Collection", status: "Action needed", color: "bg-rose-500", glow: "shadow-rose-500/40" },
+  { label: "Staff Attendance", status: "Strong", color: "bg-emerald-400", glow: "shadow-emerald-400/40" },
+];
+
+const intelligenceJourney = ["Registers", "Digitization", "Automation", "Insights", "Growth"];
+
 const pathway = [
   { title: "Tree House", text: "One school", icon: School },
   { title: "Silchar", text: "One city", icon: Landmark },
@@ -427,6 +449,118 @@ export default function Home() {
             </div>
           </Reveal>
         </div>
+      </section>
+
+      <section className="section-pad overflow-hidden bg-white">
+        <SectionIntro
+          eyebrow="The foundation"
+          title={
+            <>
+              Everything A School
+              <br />
+              <span className="text-emerald-500">Needs.</span>
+            </>
+          }
+          description="Complete daily operations, thoughtfully connected in one simple foundation."
+        />
+        <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {foundationModules.map(({ title, items, icon: Icon, tint }, index) => (
+            <Reveal key={title} delay={index * 0.04}>
+              <motion.div
+                whileHover={{ y: -7 }}
+                className="soft-card h-full rounded-3xl bg-slate-50 p-6"
+              >
+                <div className={cn("flex h-12 w-12 items-center justify-center rounded-2xl", tint)}>
+                  <Icon size={21} />
+                </div>
+                <h3 className="display mt-7 text-2xl font-semibold text-slate-950">{title}</h3>
+                <div className="mt-5 space-y-2.5">
+                  {items.map((item) => (
+                    <div key={item} className="flex items-center gap-2.5 text-sm text-slate-500">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mx-auto mt-16 max-w-6xl overflow-hidden rounded-[2rem] bg-slate-950 p-7 text-white md:p-10">
+          <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-400">Foundation Layer</p>
+              <h3 className="display mt-4 text-4xl font-semibold md:text-5xl">From Registers To Intelligence</h3>
+              <div className="mt-7 flex flex-wrap gap-2">
+                {["Digitize", "Automate", "Grow"].map((item, index) => (
+                  <span key={item} className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-semibold text-slate-200">
+                    <span className="text-emerald-400">0{index + 1}</span>
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="grid gap-2 sm:grid-cols-5">
+              {intelligenceJourney.map((item, index) => (
+                <div key={item} className="relative">
+                  <div className={cn(
+                    "rounded-2xl border p-4 text-center text-sm font-semibold",
+                    index === intelligenceJourney.length - 1
+                      ? "border-emerald-400 bg-emerald-400 text-slate-950"
+                      : "border-white/10 bg-white/[0.05] text-slate-300",
+                  )}>
+                    {item}
+                  </div>
+                  {index < intelligenceJourney.length - 1 && (
+                    <ArrowDown className="mx-auto my-2 text-emerald-400 sm:absolute sm:-right-3.5 sm:top-1/2 sm:m-0 sm:-translate-y-1/2 sm:-rotate-90" size={17} />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="section-pad bg-[#f7faf9]">
+        <SectionIntro
+          eyebrow="The 10-second view"
+          title="School Health Dashboard"
+          description="Not more reports. One clear view of where the school is thriving and where leadership attention matters."
+        />
+        <Reveal className="mx-auto max-w-5xl overflow-hidden rounded-[2.25rem] bg-slate-950 p-5 text-white shadow-2xl shadow-slate-900/15 md:p-8">
+          <div className="mb-6 flex flex-col justify-between gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-400">School OS Intelligence</p>
+              <h3 className="display mt-2 text-3xl font-semibold">Tree House School Health</h3>
+            </div>
+            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs font-semibold text-slate-300">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
+              Live school overview
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {schoolHealth.map(({ label, status, color, glow }) => (
+              <motion.div
+                key={label}
+                whileHover={{ y: -4 }}
+                className="rounded-2xl border border-white/[0.07] bg-white/[0.045] p-5"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <span className={cn("h-3 w-3 shrink-0 rounded-full shadow-lg", color, glow)} />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">{status}</span>
+                </div>
+                <p className="mt-8 text-base font-semibold text-slate-100">{label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </Reveal>
+        <Reveal className="mx-auto mt-10 max-w-4xl text-center">
+          <p className="display text-3xl font-semibold leading-tight text-slate-900 md:text-5xl">
+            “If you could see the health of your entire school
+            <span className="text-emerald-500"> in 10 seconds.</span>”
+          </p>
+        </Reveal>
       </section>
 
       <section className="section-pad overflow-hidden bg-white">
@@ -718,10 +852,10 @@ export default function Home() {
             <>
               One powerful system.
               <br />
-              <span className="text-emerald-500">A model for everyone.</span>
+              <span className="text-emerald-500">Different ways to participate.</span>
             </>
           }
-          description="Every school deserves access to better tools. Choose the model that fits today, and grow without changing the foundation."
+          description="Every school deserves access to better tools. Start with the shared platform or shape a white-label experience around your school."
         />
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
           <Reveal>
@@ -737,14 +871,14 @@ export default function Home() {
                     Start here
                   </span>
                 </div>
-                <p className="mt-10 text-xs font-bold uppercase tracking-[0.18em] text-emerald-600">School OS Platform</p>
-                <h3 className="display mt-2 text-3xl font-semibold text-slate-950">Ready for every school</h3>
+                <p className="mt-10 text-xs font-bold uppercase tracking-[0.18em] text-emerald-600">Shared School OS</p>
+                <h3 className="display mt-2 text-3xl font-semibold text-slate-950">A foundation open to every school</h3>
                 <p className="mt-4 text-sm leading-6 text-slate-500">
-                  Use the complete School OS platform under our trusted identity, with a simple subscription and no heavy setup.
+                  Join the School OS platform with the complete operational foundation, ongoing improvements, and no heavy setup.
                 </p>
-                <div className="mt-8 flex items-end gap-2 border-y border-slate-200 py-6">
-                  <span className="display text-5xl font-semibold text-slate-950">₹999</span>
-                  <span className="pb-1 text-sm font-medium text-slate-400">/ month onwards</span>
+                <div className="mt-8 border-y border-slate-200 py-6">
+                  <p className="display text-4xl font-semibold text-slate-950">Start together. Grow together.</p>
+                  <p className="mt-2 text-sm text-slate-400">A practical path into the complete School OS vision</p>
                 </div>
                 <div className="mt-7 space-y-3">
                   {["Core School OS capabilities", "Fast setup and ongoing updates", "Grow at your own pace"].map((item) => (
@@ -799,6 +933,48 @@ export default function Home() {
           <p className="text-sm leading-6 text-slate-500">
             Same vision. Same commitment to better schools.
             <span className="font-semibold text-slate-800"> A path designed for where you are today.</span>
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="section-pad overflow-hidden bg-[#f7faf9]">
+        <SectionIntro
+          eyebrow="Built with school leaders"
+          title={
+            <>
+              Shaped by the people
+              <br />
+              <span className="text-emerald-500">who know schools best.</span>
+            </>
+          }
+          description="We are speaking with principals, teachers and school owners across Barak Valley to understand how schools really operate."
+        />
+        <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            { title: "Tree House", text: "The starting point", icon: School },
+            { title: "Future Partner Schools", text: "Learning together", icon: HandHeart },
+            { title: "Barak Valley", text: "A regional movement", icon: MapPin },
+            { title: "North East", text: "A shared possibility", icon: Compass },
+          ].map(({ title, text, icon: Icon }, index) => (
+            <Reveal key={title} delay={index * 0.07}>
+              <motion.div
+                whileHover={{ y: -7 }}
+                className="soft-card h-full rounded-3xl bg-white p-6 text-center"
+              >
+                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
+                  <Icon size={23} />
+                </span>
+                <p className="mt-7 text-xs font-bold uppercase tracking-[0.16em] text-emerald-600">0{index + 1}</p>
+                <h3 className="display mt-2 text-xl font-semibold text-slate-950">{title}</h3>
+                <p className="mt-2 text-sm text-slate-500">{text}</p>
+              </motion.div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="mx-auto mt-12 max-w-4xl rounded-[2rem] bg-emerald-500 px-7 py-10 text-center text-slate-950 shadow-glow md:px-12">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-950/60">An invitation to Biswajit Sir</p>
+          <p className="display mt-4 text-3xl font-semibold leading-tight md:text-5xl">
+            Help us shape a School OS grounded in real school leadership.
           </p>
         </Reveal>
       </section>
