@@ -545,20 +545,19 @@ export default function Home() {
         />
         <div className="mx-auto max-w-4xl">
           <div className="relative">
-            <div className="absolute bottom-8 left-6 top-8 w-px bg-gradient-to-b from-sky-200 via-violet-200 to-emerald-300 md:left-1/2" />
+            <div className="absolute bottom-8 left-6 top-8 w-px -translate-x-1/2 bg-gradient-to-b from-sky-200 via-violet-200 to-emerald-300 md:left-1/2" />
             {timeline.map(({ title, note, icon: Icon, color }, index) => (
               <Reveal
                 key={title}
                 delay={index * 0.05}
-                className={cn(
-                  "relative mb-6 flex items-center md:w-1/2",
-                  index % 2 ? "md:ml-auto md:pl-12" : "md:justify-end md:pr-12",
-                )}
+                className="relative mb-6 grid grid-cols-[3rem_minmax(0,1fr)] items-center gap-x-4 md:grid-cols-[minmax(0,1fr)_4rem_minmax(0,1fr)] md:gap-x-6"
               >
                 <div
                   className={cn(
-                    "soft-card ml-16 w-full rounded-3xl bg-white p-5 md:ml-0",
-                    index % 2 ? "" : "md:text-right",
+                    "soft-card col-start-2 row-start-1 w-full rounded-3xl bg-white p-5",
+                    index % 2
+                      ? "md:col-start-3"
+                      : "md:col-start-1 md:text-right",
                   )}
                 >
                   <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Moment 0{index + 1}</p>
@@ -567,9 +566,8 @@ export default function Home() {
                 </div>
                 <div
                   className={cn(
-                    "absolute left-0 flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-lg md:left-auto",
+                    "relative z-10 col-start-1 row-start-1 flex h-12 w-12 items-center justify-center justify-self-center rounded-2xl text-white shadow-lg md:col-start-2",
                     color,
-                    index % 2 ? "md:-left-6" : "md:-right-6",
                   )}
                 >
                   <Icon size={20} />
