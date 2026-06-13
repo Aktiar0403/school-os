@@ -36,7 +36,6 @@ import {
   TrendingUp,
   Trophy,
   Users,
-  X,
   type LucideIcon,
 } from "lucide-react";
 import { Counter } from "@/components/Counter";
@@ -369,32 +368,33 @@ export default function Home() {
 
       <section className="section-pad bg-slate-50">
         <SectionIntro
-          eyebrow="A different lens"
+          eyebrow="Simple to use. Advanced by design."
           title={
             <>
-              Measure what moves
+              Simple for every day.
               <br />
-              <span className="text-emerald-500">a school forward.</span>
+              <span className="text-emerald-500">Powerful for what matters.</span>
             </>
           }
+          description="School OS keeps familiar school operations effortless, then connects them to the outcomes that help a school grow."
         />
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
           <Reveal>
             <div className="soft-card h-full rounded-[2rem] bg-white p-7 md:p-10">
               <div className="mb-9 flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-rose-500">The old lens</p>
-                  <h3 className="display mt-2 text-2xl font-semibold">What schools measure today</h3>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Simple daily operations</p>
+                  <h3 className="display mt-2 text-2xl font-semibold">Everything schools already manage</h3>
                 </div>
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-50 text-rose-500">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-100 text-slate-500">
                   <BarChart3 size={22} />
                 </div>
               </div>
               <div className="space-y-3">
                 {problemToday.map((item) => (
-                  <div key={item} className="flex items-center gap-3 rounded-2xl bg-slate-50 px-4 py-4 text-slate-500">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-rose-100 text-rose-500">
-                      <X size={14} strokeWidth={3} />
+                  <div key={item} className="flex items-center gap-3 rounded-2xl bg-slate-50 px-4 py-4 text-slate-600">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-slate-400 shadow-sm">
+                      <Check size={14} strokeWidth={3} />
                     </span>
                     <span className="font-medium">{item}</span>
                   </div>
@@ -407,8 +407,8 @@ export default function Home() {
               <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-emerald-500/20 blur-[60px]" />
               <div className="relative mb-9 flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-400">The human lens</p>
-                  <h3 className="display mt-2 text-2xl font-semibold">What actually matters</h3>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-400">Advanced school intelligence</p>
+                  <h3 className="display mt-2 text-2xl font-semibold">The outcomes behind the operations</h3>
                 </div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-400/10 text-emerald-400">
                   <Target size={22} />
@@ -622,15 +622,15 @@ export default function Home() {
 
       <section className="section-pad overflow-hidden bg-white">
         <SectionIntro
-          eyebrow="From vision to everyday value"
+          eyebrow="Advanced features. Simple experience."
           title={
             <>
-              Technology that quietly
+              Powerful technology that
               <br />
-              <span className="text-emerald-500">makes school better.</span>
+              <span className="text-emerald-500">feels effortless.</span>
             </>
           }
-          description="Simple tools working together to reduce friction, strengthen trust, and keep every family connected."
+          description="Every capability is designed to take fewer steps, require less training, and quietly do more for the entire school."
         />
         <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2">
           {capabilities.map(({ title, text, outcome, icon: Icon, accent }, index) => (
